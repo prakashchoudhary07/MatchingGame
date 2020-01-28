@@ -1,0 +1,57 @@
+* {
+    padding: opx;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    background-color: aqua;
+    display: flex;
+}
+
+.memoryGame {
+    width: 640px;
+    height: 640px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    perspective: 1000px;
+}
+
+.cards {
+    border: 2px solid black;
+    width: 33.33%;
+    height: 33.33%;
+    position: relative;
+    transform: scale(1);
+    transform-style: preserve-3d;
+    transition: transform .5s;
+    font-size: 36px;
+    background-color: bisque;
+}
+
+.cards:active {
+    transform: scale(.97);
+    transition: transform .2s;
+}
+
+.cards.flip {
+    transform: rotateY(180deg);
+}
+
+.front,
+back {
+    border: 2px solid black;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: azure;
+    font-size: 36px;
+    text-align: center;
+    backface-visibility: hidden;
+}
+
+.front {
+    transform: rotateY(180deg);
+}
