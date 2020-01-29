@@ -1,4 +1,4 @@
-const cardsArray = ['X', 'A', 'A', 'B', 'B', 'C', 'C', 'D', 'D'];
+const cardsArray = ['X', 'A', 'a', 'B', 'b', 'C', 'c', 'D', 'd'];
 
 function shuffle(array) {
     var currentIndex = array.length,
@@ -48,21 +48,68 @@ element.appendChild(p);
 var element = document.getElementById("info");
 element.appendChild(span);
 
-// element = document.getElementsByClassName("memoryGame");
-// cardsArray.forEach(card => {
-//     var div = document.createElement("div");
-//     var node = document.createTextNode("");
-//     div.appendChild(node);
-//     div.setAttribute("class", "cards");
-//     div.setAttribute("name", "card");
-//     div.setAttribute("data-name", card);
-//     element.appendChild(div);
 
 
-// });
+cardsArray.forEach(card => {
+    var div = document.createElement("div");
+    var node = document.createTextNode("");
+    div.appendChild(node);
+    div.setAttribute("class", "cards");
+    div.setAttribute("id", "card" + card);
+    div.setAttribute("data-name", card);
+
+
+    var span1 = document.createElement("span");
+    var node = document.createTextNode("" + card.toUpperCase());
+    span1.setAttribute("class", "front");
+    span1.appendChild(node);
+
+
+    var span2 = document.createElement("span");
+    var node = document.createTextNode("0");
+    span2.setAttribute("class", "back");
+    span2.appendChild(node);
+
+    var element = document.getElementById("memoryGame");
+    element.appendChild(div);
+    var element = document.getElementById("card" + card);
+    element.appendChild(span1);
+    var element = document.getElementById("card" + card);
+    element.appendChild(span2);
+});
+
+
+
+var button = document.createElement("button");
+var node = document.createTextNode("Restart Game");
+button.setAttribute("onClick", "window.location.href=window.location.href");
+button.setAttribute("class", "restart");
+button.appendChild(node);
+
+var element = document.getElementById("heading");
+element.appendChild(button);
+
 
 
 // <div class="cards" data-name="A">
 // <span class="front">A</span>
 // <span class="back">0</span>
-// </div>
+// </div>Z
+
+
+
+
+
+// var tree = document.createDocumentFragment();
+
+// var div = document.createElement("div");
+// div.setAttribute("class", "score");
+// var p = document.createElement("p");
+// p.appendChild(document.createTextNode("Moves"));
+// var span = document.createElement("span");
+// span.setAttribute("id", "score");
+
+
+// tree.appendChild(p);
+// tree.appendChild(span);
+// document.getElementById("heading").appendChild(tree);

@@ -41,7 +41,7 @@ function checkForMAtch() {
     document.getElementById('score').innerHTML = movesCount;
     console.log(movesCount);
     console.log("MAtched called");
-    let isMatch = firstCard.dataset.name === secondCard.dataset.name;
+    let isMatch = firstCard.dataset.name.toUpperCase() === secondCard.dataset.name.toUpperCase();
     console.log(isMatch);
     isMatch ? disableCard() : unfilpCard();
 
@@ -73,13 +73,5 @@ function resetBoard() {
     secondCard = null;
 }
 
-(function shuffle() {
-    console.log("shuffle called");
-    card.forEach(card1 => {
-        let randompos = Math.floor(Math.random() * 12);
-        console.log(randompos);
-        card1.getElementsByClassName.order = randompos;
-    });
-})();
 
 card.forEach(card1 => card1.addEventListener('click', flipCard));
